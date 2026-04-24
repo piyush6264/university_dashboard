@@ -43,11 +43,13 @@ def mark_attendance(
     db.refresh(new_attendance)
 
     return new_attendance
+
+
 @router.post("/create_subject",response_model=schemas.SubjectOut)
 def create_subject(
     subject: schemas.SubjectCreate,
-db: Session = Depends(database.get_db),
-current_user: models.User = Depends(require_admin)):
+    db: Session = Depends(database.get_db),
+    current_user: models.User = Depends(require_admin)):
     new_subject = models.Subject(
         name=subject.name,
     )
