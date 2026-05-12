@@ -36,6 +36,10 @@ class SubjectOut(BaseModel):
     class Config:
         from_attributes = True
 
+class SubjectAllocationCreate(BaseModel):
+    student_id: int
+    subject_id: int
+
 class AttendanceCreate(BaseModel):
     student_id: int
     subject_id: int
